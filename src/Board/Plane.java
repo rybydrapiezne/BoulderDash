@@ -20,28 +20,12 @@ public class Plane {
 
         for(int i=0;i<SIZE;i++)
         {
-            board.get(0).add(new Wall(0,i));
-            board.get(i).add(new Wall(i,i));
+            board.get(0).set(i,new Wall(0,i));
+            board.get(i).set(board.get(i).size()-1, new Wall(i,i));
+            board.get(board.size()-1).set(i,new Wall(board.size()-1, i));
+            board.get(i).set(0,new Wall(i,0));
         }
 
-        boolean flag=false;
-        for(int i=0;i<SIZE;i++)
-        {
-            for(int j=0;j<SIZE;j++)
-            {
-                if(board.get(i).get(j) instanceof Wall)
-                {
-                    flag=true;
-                    System.out.print(1);
-
-                }
-                else {
-                    if(!flag)
-                    System.out.print(0);
-                }
-                }
-            flag=false;
-            System.out.println();
-        }
     }
+
 }
