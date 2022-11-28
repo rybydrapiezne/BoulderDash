@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="main.Boulder_Dash">
+  <grid id="27dc6" binding="main_menu" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="532" height="491"/>
+    </constraints>
+    <properties>
+      <background color="-14540254"/>
+      <enabled value="true"/>
+      <foreground color="-16383477"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="20fa9" class="javax.swing.JButton" binding="Play">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-14211289"/>
+          <font name="Freshman" size="44"/>
+          <foreground color="-3276545"/>
+          <text value="Play"/>
+        </properties>
+      </component>
+      <component id="afe90" class="javax.swing.JButton" binding="Exit">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-14078930"/>
+          <font name="Freshman" size="44"/>
+          <foreground color="-3276545"/>
+          <hideActionText value="false"/>
+          <text value="Exit"/>
+        </properties>
+      </component>
+      <component id="ee7a5" class="javax.swing.JButton" binding="Options">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-14078930"/>
+          <font name="Freshman" size="44"/>
+          <foreground color="-3276545"/>
+          <text value="Options"/>
+        </properties>
+      </component>
+      <grid id="e07fb" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0" ipady="20"/>
+        </constraints>
+        <properties>
+          <background color="-14540254"/>
+          <foreground color="-14540254"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="d9226" class="javax.swing.JSeparator">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0" ipady="20"/>
+            </constraints>
+            <properties>
+              <alignmentX value="0.0"/>
+              <alignmentY value="0.0"/>
+              <autoscrolls value="false"/>
+              <enabled value="true"/>
+              <foreground color="-14540254"/>
+              <opaque value="false"/>
+              <preferredSize width="0" height="1"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="864dc" class="javax.swing.JLabel" binding="Name">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <icon value="main/boulder_dash.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
