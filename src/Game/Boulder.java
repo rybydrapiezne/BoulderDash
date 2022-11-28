@@ -1,4 +1,4 @@
-package Board;
+package Game;
 
 public class Boulder implements GameObject {
     int x;

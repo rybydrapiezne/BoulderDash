@@ -1,6 +1,6 @@
-package Board;
+package Game;
 
-public class Dirt implements GameObject{
+public class Point implements GameObject{
     @Override
     public int get_position() {
         return 0;
