@@ -1,4 +1,10 @@
 package Character;
 
-public class Player {
+import Game.GameObject;
+
+public class Player implements GameObject {
+    @Override
+    public int get_position() {
+        return 0;
+    }
 }

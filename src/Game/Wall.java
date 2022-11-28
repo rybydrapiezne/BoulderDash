@@ -1,4 +1,4 @@
-package Board;
+package Game;
 
 public class Wall implements GameObject {
     int x;
