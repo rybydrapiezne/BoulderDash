@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 public class Boulder_Dash {
     private JButton Play;
@@ -15,16 +16,16 @@ public class Boulder_Dash {
     JFrame frame;
     JFrame frame_play;
     Settings options;
-    Board gameBoard;
-    public Boulder_Dash() {
+    Game_form gameBoard;
+    public Boulder_Dash() throws FileNotFoundException {
         frame=new JFrame("Boulder Dash");
          frame_play=new JFrame("Boulder Dash");
 
 
         set_main_menu();
         options=new Settings(this);
-        Plane plane=new Plane(options.difficulty);
-        gameBoard=new Board();
+
+        gameBoard=new Game_form(this);
 
         Play.addActionListener(new ActionListener() {
             @Override
@@ -63,9 +64,9 @@ public class Boulder_Dash {
         frame.pack();
         frame.setVisible(true);
     }
-    public static void main(String [] args)
-    {
+    public static void main(String [] args) throws FileNotFoundException {
         Boulder_Dash boulder_dash=new Boulder_Dash();
+
 
 
 
