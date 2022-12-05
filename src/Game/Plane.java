@@ -1,4 +1,6 @@
 package Game;
+import Character.Player;
+import Help_Classes.Point;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +12,7 @@ public class Plane {
     public static int SIZE=27;
     public static int LEVEL_LENGTH =5;
     int number_of_boulders;
-
+    public Point player_position;
    public ArrayList<ArrayList<GameObject>> board;
     public Plane(Difficulty difficulty) throws FileNotFoundException {
 
@@ -79,14 +81,19 @@ public class Plane {
                         board.get(row).add(new Boulder(i,row));
                         break;
                     }
-                    //TODO Rest cases like 3 for point and 4 for player
+                    case'4': {
+                        board.get(row).add(new Player(i, row));
+                        player_position=new Point(i,row);
+                        break;
+                    }
+                    //TODO Rest cases like 3 for point
                 }
             }
             row++;
 
         }
     }
-    public void inner_walls()
+    /*public void inner_walls()
     {
         boolean flag=false;
         for(int i = LEVEL_LENGTH; i< board.size(); i+= LEVEL_LENGTH)
@@ -103,7 +110,7 @@ public class Plane {
                     flag=false;
             }
         }
-    }
+    }*/
     public void print_text_board()
     {
         for(int i=0;i<board.size();i++)
@@ -136,6 +143,7 @@ public class Plane {
             }
         }
     }
+
     public void set_difficulty(Difficulty difficulty)
     {
         switch (difficulty)

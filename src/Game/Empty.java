@@ -1,13 +1,6 @@
 package Game;
 
-public class Dirt implements GameObject{
-    int x;
-    int y;
-    Dirt(int x,int y)
-    {
-        this.x=x;
-        this.y=y;
-    }
+public class Empty implements GameObject{
     @Override
     public int get_position() {
         return 0;
@@ -17,6 +10,4 @@ public class Dirt implements GameObject{
     public void move(int direction) {
 
     }
-
-
 }
