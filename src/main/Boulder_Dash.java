@@ -1,10 +1,14 @@
 package main;
 
-import Game.Plane;
+import Character.Player;
+import Game.Empty;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 
 public class Boulder_Dash {
@@ -31,6 +35,63 @@ public class Boulder_Dash {
             @Override
             public void actionPerformed(ActionEvent e) {
             frame.setContentPane(gameBoard.board);
+                frame.addKeyListener(new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {
+
+                    }
+
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        if(e.getKeyCode()==KeyEvent.VK_UP)
+                        {
+                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                            player.move(1);
+                            gameBoard.plane.player_position.y--;
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
+
+                            frame.repaint();
+                            System.out.println("Tak");
+                        }
+                        if(e.getKeyCode()==KeyEvent.VK_DOWN)
+                        {
+                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                            player.move(2);
+                            gameBoard.plane.player_position.y++;
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
+                            frame.repaint();
+                            System.out.println("Tak");
+                        }
+                        if(e.getKeyCode()==KeyEvent.VK_RIGHT)
+                        {
+                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                            player.move(3);
+                            gameBoard.plane.player_position.x++;
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
+                            frame.repaint();
+                            System.out.println("Tak");
+                        }
+                        if(e.getKeyCode()==KeyEvent.VK_LEFT)
+                        {
+
+                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                            player.move(4  );
+                            gameBoard.plane.player_position.x--;
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
+                            frame.repaint();
+                            System.out.println("Tak");
+                        }
+                    }
+
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+
+                    }
+                });
             frame.pack();
             frame.setVisible(true);
             }
@@ -57,6 +118,7 @@ public class Boulder_Dash {
             }
         });
     }
+
     public void set_main_menu()
     {
         frame.setContentPane(main_menu);

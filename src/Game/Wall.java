@@ -13,4 +13,11 @@ public class Wall implements GameObject {
     public int get_position() {
         return 0;
     }
+
+    @Override
+    public void move(int direction) {
+
+    }
+
+
 }
