@@ -4,15 +4,14 @@ import Game.*;
 import Character.*;
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
 
 public class Overseer extends JPanel {
 
-    private Image wall_image;
-    private Image dirt_image;
-    private Image boulder_image;
-    private Image player_image;
-    private Image empty_image;
+    private final Image wall_image;
+    private final Image dirt_image;
+    private final Image boulder_image;
+    private final Image player_image;
+    private final Image empty_image;
     Plane plane;
 
     public Image DrawPanel(String file_name){
@@ -46,35 +45,35 @@ public class Overseer extends JPanel {
                 GameObject object=plane.board.get(i).get(j);
                 if(object instanceof Wall)
                 {
-                    g.drawImage(wall_image,index_y,index_x,this);
+                    g.drawImage(wall_image,index_x,index_y,this);
 
-                    index_y+=25;
+                    index_x+=25;
                 }
                 if(object instanceof Dirt)
                 {
-                    g.drawImage(dirt_image,index_y,index_x,this);
+                    g.drawImage(dirt_image,index_x,index_y,this);
 
-                    index_y+=25;
+                    index_x+=25;
                 }
                 if(object instanceof Boulder)
                 {
-                    g.drawImage(boulder_image,index_y,index_x,this);
+                    g.drawImage(boulder_image,index_x,index_y,this);
 
-                    index_y+=25;
+                    index_x+=25;
                 }
                 if(object instanceof Player)
                 {
-                    g.drawImage(player_image,index_y,index_x,this);
-                    index_y+=25;
+                    g.drawImage(player_image,index_x,index_y,this);
+                    index_x+=25;
                 }
                 if(object instanceof Empty)
                 {
-                    g.drawImage(empty_image,index_y,index_x,this);
-                    index_y+=25;
+                    g.drawImage(empty_image,index_x,index_y,this);
+                    index_x+=25;
                 }
             }
-            index_y=10;
-            index_x+=25;
+            index_x=10;
+            index_y+=25;
         }
 
     }

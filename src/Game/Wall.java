@@ -19,5 +19,10 @@ public class Wall implements GameObject {
 
     }
 
+    @Override
+    public boolean is_collision() {
+        return true;
+    }
+
 
 }

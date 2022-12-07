@@ -18,5 +18,10 @@ public class Dirt implements GameObject{
 
     }
 
+    @Override
+    public boolean is_collision() {
+        return false;
+    }
+
 
 }

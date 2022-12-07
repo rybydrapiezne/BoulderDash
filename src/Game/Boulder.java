@@ -15,7 +15,12 @@ public class Boulder implements GameObject {
 
     @Override
     public void move(int direction) {
+        x--;
+    }
 
+    @Override
+    public boolean is_collision() {
+        return true;
     }
 
 
