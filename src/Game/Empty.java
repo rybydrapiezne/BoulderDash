@@ -10,4 +10,9 @@ public class Empty implements GameObject{
     public void move(int direction) {
 
     }
+
+    @Override
+    public boolean is_collision() {
+        return false;
+    }
 }

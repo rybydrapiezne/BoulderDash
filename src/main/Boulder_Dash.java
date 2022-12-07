@@ -5,8 +5,7 @@ import Game.Empty;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
@@ -31,91 +30,89 @@ public class Boulder_Dash {
 
         gameBoard=new Game_form(this);
 
-        Play.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            frame.setContentPane(gameBoard.board);
-                frame.addKeyListener(new KeyListener() {
-                    @Override
-                    public void keyTyped(KeyEvent e) {
+        Play.addActionListener(e -> {
+        frame.setContentPane(gameBoard.board);
+            frame.addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
 
-                    }
+                }
 
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        if(e.getKeyCode()==KeyEvent.VK_UP)
-                        {
-                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if(e.getKeyCode()==KeyEvent.VK_UP)
+                    {
+                        Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                        if(!gameBoard.plane.board.get(gameBoard.plane.player_position.y-1).get(gameBoard.plane.player_position.x).is_collision()) {
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(1);
                             gameBoard.plane.player_position.y--;
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
-
-                            frame.repaint();
-                            System.out.println("Tak");
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
-                        if(e.getKeyCode()==KeyEvent.VK_DOWN)
-                        {
-                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                        frame.repaint();
+                        System.out.println("Tak");
+                    }
+                    if(e.getKeyCode()==KeyEvent.VK_DOWN)
+                    {
+                        Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                        if(!gameBoard.plane.board.get(gameBoard.plane.player_position.y+1).get(gameBoard.plane.player_position.x).is_collision()) {
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(2);
                             gameBoard.plane.player_position.y++;
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
-                            frame.repaint();
-                            System.out.println("Tak");
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
-                        if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-                        {
-                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
+                        frame.repaint();
+                        System.out.println("Tak");
+                    }
+                    if(e.getKeyCode()==KeyEvent.VK_RIGHT)
+                    {
+                        Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                        if(!gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x+1).is_collision()) {
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(3);
                             gameBoard.plane.player_position.x++;
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
-                            frame.repaint();
-                            System.out.println("Tak");
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
-                        if(e.getKeyCode()==KeyEvent.VK_LEFT)
-                        {
+                        frame.repaint();
+                        System.out.println("Tak");
+                    }
+                    if(e.getKeyCode()==KeyEvent.VK_LEFT)
+                    {
 
-                            Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,new Empty());
-                            player.move(4  );
+                        Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+                        if(!gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x-1).is_collision()) {
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
+                            player.move(4);
                             gameBoard.plane.player_position.x--;
-                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x,player);
-                            frame.repaint();
-                            System.out.println("Tak");
-                        }
-                    }
+                            gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
 
-                    @Override
-                    public void keyReleased(KeyEvent e) {
-
+                        }frame.repaint();
+                        System.out.println("Tak");
                     }
-                });
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+
+                }
+            });
+        frame.pack();
+        frame.setVisible(true);
+        });
+        Options.addActionListener(e -> {
+
+
+            frame.setContentPane(options.settings);
             frame.pack();
             frame.setVisible(true);
-            }
+
         });
-        Options.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-                frame.setContentPane(options.settings);
-                frame.pack();
-                frame.setVisible(true);
-
-            }
-        });
-        Exit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Container frame1 = Exit.getParent();
-                do
-                    frame1 = frame1.getParent();
-                while (!(frame1 instanceof JFrame));
-                ((JFrame) frame1).dispose();
-            }
+        Exit.addActionListener(e -> {
+            Container frame1 = Exit.getParent();
+            do
+                frame1 = frame1.getParent();
+            while (!(frame1 instanceof JFrame));
+            ((JFrame) frame1).dispose();
         });
     }
 
