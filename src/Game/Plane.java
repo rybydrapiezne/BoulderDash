@@ -14,6 +14,7 @@ public class Plane {
     int number_of_boulders;
     public Point player_position;
    public ArrayList<ArrayList<GameObject>> board;
+   public ArrayList<Boulder> boulders;
     public Plane(Difficulty difficulty) throws FileNotFoundException {
 
         set_difficulty(difficulty);
@@ -21,7 +22,9 @@ public class Plane {
         for(int i=0;i<SIZE;i++) {
             board.add(new ArrayList<>());
         }
+        boulders=new ArrayList<>();
         set_plane(difficulty);
+
 
         /*for(int i=0;i<SIZE;i++)
         {
@@ -78,7 +81,10 @@ public class Plane {
                     }
                     case '2':
                     {
-                        board.get(row).add(new Boulder(i,row));
+                        Boulder boulder=new Boulder(i,row);
+                        board.get(row).add(boulder);
+
+                            boulders.add(boulder);
                         break;
                     }
                     case'4': {
@@ -86,7 +92,11 @@ public class Plane {
                         player_position=new Point(i,row);
                         break;
                     }
-                    //TODO Rest cases like 3 for point
+                    case '3':{
+                        board.get(row).add(new Game.Point(i, row));
+                        break;
+                    }
+
                 }
             }
             row++;

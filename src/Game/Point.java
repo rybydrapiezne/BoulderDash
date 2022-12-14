@@ -1,9 +1,16 @@
 package Game;
 
 public class Point implements GameObject{
+    int x;
+    int y;
+    Point(int x,int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
     @Override
-    public int get_position() {
-        return 0;
+    public Help_Classes.Point get_position() {
+        return null;
     }
 
     @Override
@@ -13,7 +20,7 @@ public class Point implements GameObject{
 
     @Override
     public boolean is_collision() {
-        return false;
+        return true;
     }
 
 

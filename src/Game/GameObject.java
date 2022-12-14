@@ -1,7 +1,9 @@
 package Game;
 
+import Help_Classes.Point;
+
 public interface GameObject {
- int get_position();
+ Point get_position();
  void move(int direction);
 
  boolean is_collision();

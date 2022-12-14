@@ -1,6 +1,7 @@
 package Character;
 
 import Game.GameObject;
+import Help_Classes.Point;
 
 public class Player implements GameObject {
     int x;
@@ -12,8 +13,8 @@ public class Player implements GameObject {
     }
 
     @Override
-    public int get_position() {
-        return 0;
+    public Point get_position() {
+        return null;
     }
 
     @Override

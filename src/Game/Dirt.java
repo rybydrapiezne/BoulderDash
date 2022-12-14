@@ -1,5 +1,7 @@
 package Game;
 
+import Help_Classes.Point;
+
 public class Dirt implements GameObject{
     int x;
     int y;
@@ -9,8 +11,8 @@ public class Dirt implements GameObject{
         this.y=y;
     }
     @Override
-    public int get_position() {
-        return 0;
+    public Point get_position() {
+        return null;
     }
 
     @Override

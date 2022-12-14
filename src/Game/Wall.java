@@ -1,5 +1,7 @@
 package Game;
 
+import Help_Classes.Point;
+
 public class Wall implements GameObject {
     int x;
     int y;
@@ -10,8 +12,8 @@ public class Wall implements GameObject {
     }
 
     @Override
-    public int get_position() {
-        return 0;
+    public Point get_position() {
+        return new Help_Classes.Point(x,y);
     }
 
     @Override
