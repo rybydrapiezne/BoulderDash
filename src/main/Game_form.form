@@ -8,7 +8,7 @@
       <background color="-14211289"/>
       <foreground color="-14211289"/>
       <minimumSize width="0" height="0"/>
-      <preferredSize width="675" height="675"/>
+      <preferredSize width="675" height="850"/>
     </properties>
     <border type="none"/>
     <children>
@@ -22,6 +22,17 @@
           <foreground color="-14211289"/>
           <minimumSize width="0" height="0"/>
           <preferredSize width="675" height="675"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <grid id="12367" class="main.Clock" binding="clock1" custom-create="true" default-binding="true" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <preferredSize width="600" height="50"/>
         </properties>
         <border type="none"/>
         <children/>

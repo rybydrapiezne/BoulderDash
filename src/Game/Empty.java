@@ -1,9 +1,11 @@
 package Game;
 
+import Help_Classes.Point;
+
 public class Empty implements GameObject{
     @Override
-    public int get_position() {
-        return 0;
+    public Point get_position() {
+        return null;
     }
 
     @Override

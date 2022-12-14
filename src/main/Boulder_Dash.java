@@ -28,7 +28,7 @@ public class Boulder_Dash {
         set_main_menu();
         options=new Settings(this);
 
-        gameBoard=new Game_form(this);
+        gameBoard=new Game_form(this,frame);
 
         Play.addActionListener(e -> {
         frame.setContentPane(gameBoard.board);
@@ -39,7 +39,7 @@ public class Boulder_Dash {
                 }
 
                 @Override
-                public void keyPressed(KeyEvent e) {
+                public void keyReleased(KeyEvent e) {
                     if(e.getKeyCode()==KeyEvent.VK_UP)
                     {
                         Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
@@ -50,7 +50,7 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
                         frame.repaint();
-                        System.out.println("Tak");
+
                     }
                     if(e.getKeyCode()==KeyEvent.VK_DOWN)
                     {
@@ -62,7 +62,7 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
                         frame.repaint();
-                        System.out.println("Tak");
+
                     }
                     if(e.getKeyCode()==KeyEvent.VK_RIGHT)
                     {
@@ -74,7 +74,7 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
                         frame.repaint();
-                        System.out.println("Tak");
+
                     }
                     if(e.getKeyCode()==KeyEvent.VK_LEFT)
                     {
@@ -87,12 +87,12 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
 
                         }frame.repaint();
-                        System.out.println("Tak");
+
                     }
                 }
 
                 @Override
-                public void keyReleased(KeyEvent e) {
+                public void keyPressed(KeyEvent e) {
 
                 }
             });
@@ -125,6 +125,7 @@ public class Boulder_Dash {
     }
     public static void main(String [] args) throws FileNotFoundException {
         Boulder_Dash boulder_dash=new Boulder_Dash();
+
 
 
 

@@ -1,5 +1,7 @@
 package Game;
 
+import Help_Classes.Point;
+
 public class Boulder implements GameObject {
     int x;
     int y;
@@ -9,13 +11,13 @@ public class Boulder implements GameObject {
         this.y=y;
     }
     @Override
-    public int get_position() {
-        return 0;
+    public Help_Classes.Point get_position() {
+        return new Point(x,y);
     }
 
     @Override
     public void move(int direction) {
-        x--;
+        y++;
     }
 
     @Override
