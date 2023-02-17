@@ -10,17 +10,17 @@ public class Point implements GameObject{
     }
     @Override
     public Help_Classes.Point get_position() {
-        return null;
+        return new Help_Classes.Point(x,y);
     }
 
     @Override
     public void move(int direction) {
-
+        y++;
     }
 
     @Override
     public boolean is_collision() {
-        return true;
+        return false;
     }
 
 

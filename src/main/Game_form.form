@@ -8,13 +8,13 @@
       <background color="-14211289"/>
       <foreground color="-14211289"/>
       <minimumSize width="0" height="0"/>
-      <preferredSize width="675" height="850"/>
+      <preferredSize width="675" height="1100"/>
     </properties>
     <border type="none"/>
     <children>
       <grid id="85778" class="main.Overseer" binding="overseer1" custom-create="true" default-binding="true" layout-manager="GridBagLayout">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
@@ -28,11 +28,34 @@
       </grid>
       <grid id="12367" class="main.Clock" binding="clock1" custom-create="true" default-binding="true" layout-manager="GridBagLayout">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
           <preferredSize width="600" height="50"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <component id="dcb05" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <font name="Freshman" size="22"/>
+          <foreground color="-3276545"/>
+          <text value="Score"/>
+        </properties>
+      </component>
+      <grid id="c2024" class="main.Score" binding="score1" custom-create="true" default-binding="true" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <preferredSize width="600" height="50"/>
+          <requestFocusEnabled value="false"/>
         </properties>
         <border type="none"/>
         <children/>
