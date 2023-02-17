@@ -20,26 +20,30 @@ public class Boulder_Dash {
     JFrame frame_play;
     Settings options;
     Game_form gameBoard;
+
     public Boulder_Dash() throws FileNotFoundException {
         frame=new JFrame("Boulder Dash");
-         frame_play=new JFrame("Boulder Dash");
+        frame_play=new JFrame("Boulder Dash");
 
 
         set_main_menu();
         options=new Settings(this);
 
         gameBoard=new Game_form(this,frame);
-
+        gameBoard.current_point_score=0;
         Play.addActionListener(e -> {
-        frame.setContentPane(gameBoard.board);
+            frame.setContentPane(gameBoard.board);
+            Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+            frame.setLocation(dim.width/2-frame.getSize().width/2, (dim.height-400)/2-frame.getSize().height/2);
+
             frame.addKeyListener(new KeyListener() {
                 @Override
-                public void keyTyped(KeyEvent e) {
+                public void keyReleased(KeyEvent e) {
 
                 }
 
                 @Override
-                public void keyReleased(KeyEvent e) {
+                public void keyPressed(KeyEvent e) {
                     if(e.getKeyCode()==KeyEvent.VK_UP)
                     {
                         Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
@@ -47,8 +51,20 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(1);
                             gameBoard.plane.player_position.y--;
+                            for(int i=0;i<gameBoard.plane.points.size();i++)
+                            {
+                                if(gameBoard.plane.player_position.y==gameBoard.plane.points.get(i).get_position().y&&gameBoard.plane.player_position.x==gameBoard.plane.points.get(i).get_position().x)
+                                {
+                                    Game.Point point=gameBoard.plane.points.get(i);
+                                    gameBoard.current_point_score++;
+                                    gameBoard.plane.points.remove(point);
+
+
+                                }
+                            }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
+
                         frame.repaint();
 
                     }
@@ -59,6 +75,17 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(2);
                             gameBoard.plane.player_position.y++;
+                            for(int i=0;i<gameBoard.plane.points.size();i++)
+                            {
+                                if(gameBoard.plane.player_position.y==gameBoard.plane.points.get(i).get_position().y&&gameBoard.plane.player_position.x==gameBoard.plane.points.get(i).get_position().x)
+                                {
+                                    Game.Point point=gameBoard.plane.points.get(i);
+                                    gameBoard.current_point_score++;
+                                    gameBoard.plane.points.remove(point);
+
+
+                                }
+                            }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
                         frame.repaint();
@@ -71,6 +98,17 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(3);
                             gameBoard.plane.player_position.x++;
+                            for(int i=0;i<gameBoard.plane.points.size();i++)
+                            {
+                                if(gameBoard.plane.player_position.y==gameBoard.plane.points.get(i).get_position().y&&gameBoard.plane.player_position.x==gameBoard.plane.points.get(i).get_position().x)
+                                {
+                                    Game.Point point=gameBoard.plane.points.get(i);
+                                    gameBoard.current_point_score++;
+                                    gameBoard.plane.points.remove(point);
+
+
+                                }
+                            }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
                         }
                         frame.repaint();
@@ -84,6 +122,17 @@ public class Boulder_Dash {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(4);
                             gameBoard.plane.player_position.x--;
+                            for(int i=0;i<gameBoard.plane.points.size();i++)
+                            {
+                                if(gameBoard.plane.player_position.y==gameBoard.plane.points.get(i).get_position().y&&gameBoard.plane.player_position.x==gameBoard.plane.points.get(i).get_position().x)
+                                {
+                                    Game.Point point=gameBoard.plane.points.get(i);
+                                    gameBoard.current_point_score++;
+                                    gameBoard.plane.points.remove(point);
+
+
+                                }
+                            }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
 
                         }frame.repaint();
@@ -92,7 +141,7 @@ public class Boulder_Dash {
                 }
 
                 @Override
-                public void keyPressed(KeyEvent e) {
+                public void keyTyped(KeyEvent e) {
 
                 }
             });
@@ -121,6 +170,7 @@ public class Boulder_Dash {
         frame.setContentPane(main_menu);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
     public static void main(String [] args) throws FileNotFoundException {
