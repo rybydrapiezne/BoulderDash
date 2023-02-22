@@ -11,8 +11,9 @@ import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 
 public class Boulder_Dash {
+    static Boulder_Dash boulder_dash;
     private JButton Play;
-    private JPanel main_menu;
+    public JPanel main_menu;
     private JButton Exit;
     private JButton Options;
     private JLabel Name;
@@ -174,7 +175,7 @@ public class Boulder_Dash {
         frame.setVisible(true);
     }
     public static void main(String [] args) throws FileNotFoundException {
-        Boulder_Dash boulder_dash=new Boulder_Dash();
+       boulder_dash=new Boulder_Dash();
 
 
 

@@ -32,7 +32,9 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
+          <opaque value="false"/>
           <preferredSize width="600" height="50"/>
+          <visible value="true"/>
         </properties>
         <border type="none"/>
         <children/>
