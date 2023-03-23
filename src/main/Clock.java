@@ -73,7 +73,7 @@ public class Clock extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
 
-        int number;
+       int number;
         int x = 500;
         int y = 0;
         int time_local = time;

@@ -13,6 +13,7 @@ public class Overseer extends JPanel {
     private final Image player_image;
     private final Image empty_image;
     private final Image point_image;
+    private final Image door_image;
     Plane plane;
     Clock clock;
 
@@ -27,6 +28,7 @@ public class Overseer extends JPanel {
         player_image=DrawPanel("C:\\Users\\Szymon\\IdeaProjects\\BoulderDash\\src\\player.png");
         empty_image=DrawPanel("C:\\Users\\Szymon\\IdeaProjects\\BoulderDash\\src\\empty.png");
         point_image=DrawPanel("C:\\Users\\Szymon\\IdeaProjects\\BoulderDash\\src\\point.png");
+        door_image=DrawPanel("C:\\Users\\Szymon\\IdeaProjects\\BoulderDash\\src\\door.png");
     }
 
 
@@ -78,6 +80,11 @@ public class Overseer extends JPanel {
                 if(object instanceof Game.Point)
                 {
                     g.drawImage(point_image,index_x,index_y,this);
+                    index_x+=25;
+                }
+                if(object instanceof Door)
+                {
+                    g.drawImage(door_image  ,index_x,index_y,this);
                     index_x+=25;
                 }
             }

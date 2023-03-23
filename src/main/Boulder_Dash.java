@@ -1,6 +1,7 @@
 package main;
 
 import Character.Player;
+import Game.Door;
 import Game.Empty;
 
 import javax.swing.*;
@@ -11,8 +12,9 @@ import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 
 public class Boulder_Dash {
+    static Boulder_Dash boulder_dash;
     private JButton Play;
-    private JPanel main_menu;
+    public JPanel main_menu;
     private JButton Exit;
     private JButton Options;
     private JLabel Name;
@@ -20,6 +22,8 @@ public class Boulder_Dash {
     JFrame frame_play;
     Settings options;
     Game_form gameBoard;
+    boolean flag=false;
+    Door door;
 
     public Boulder_Dash() throws FileNotFoundException {
         frame=new JFrame("Boulder Dash");
@@ -29,9 +33,16 @@ public class Boulder_Dash {
         set_main_menu();
         options=new Settings(this);
 
-        gameBoard=new Game_form(this,frame);
-        gameBoard.current_point_score=0;
+
+
         Play.addActionListener(e -> {
+            try {
+                gameBoard=new Game_form(boulder_dash,frame);
+
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
+            gameBoard.current_point_score=0;
             frame.setContentPane(gameBoard.board);
             Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
             frame.setLocation(dim.width/2-frame.getSize().width/2, (dim.height-400)/2-frame.getSize().height/2);
@@ -47,6 +58,7 @@ public class Boulder_Dash {
                     if(e.getKeyCode()==KeyEvent.VK_UP)
                     {
                         Player player=(Player)gameBoard.plane.board.get(gameBoard.plane.player_position.y).get(gameBoard.plane.player_position.x);
+
                         if(!gameBoard.plane.board.get(gameBoard.plane.player_position.y-1).get(gameBoard.plane.player_position.x).is_collision()) {
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, new Empty());
                             player.move(1);
@@ -62,7 +74,15 @@ public class Boulder_Dash {
 
                                 }
                             }
+
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
+                            if(door!=null) {
+                                if (gameBoard.plane.player_position.y == door.get_position().y && gameBoard.plane.player_position.x == door.get_position().x) {
+                                    frame.setContentPane(new Win_Screen().Win);
+                                    frame.pack();
+                                    frame.setVisible(true);
+                                }
+                            }
                         }
 
                         frame.repaint();
@@ -87,7 +107,15 @@ public class Boulder_Dash {
                                 }
                             }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
+                            if(door!=null) {
+                                if (gameBoard.plane.player_position.y == door.get_position().y && gameBoard.plane.player_position.x == door.get_position().x) {
+                                    frame.setContentPane(new Win_Screen().Win);
+                                    frame.pack();
+                                    frame.setVisible(true);
+                                }
+                            }
                         }
+                        end();
                         frame.repaint();
 
                     }
@@ -107,10 +135,19 @@ public class Boulder_Dash {
                                     gameBoard.plane.points.remove(point);
 
 
+
                                 }
                             }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
+                            if(door!=null) {
+                                if (gameBoard.plane.player_position.y == door.get_position().y && gameBoard.plane.player_position.x == door.get_position().x) {
+                                    frame.setContentPane(new Win_Screen().Win);
+                                    frame.pack();
+                                    frame.setVisible(true);
+                                }
+                            }
                         }
+                        end();
                         frame.repaint();
 
                     }
@@ -134,8 +171,17 @@ public class Boulder_Dash {
                                 }
                             }
                             gameBoard.plane.board.get(gameBoard.plane.player_position.y).set(gameBoard.plane.player_position.x, player);
+                            if(door!=null) {
+                                if (gameBoard.plane.player_position.y == door.get_position().y && gameBoard.plane.player_position.x == door.get_position().x) {
+                                    frame.setContentPane(new Win_Screen().Win);
+                                    frame.pack();
+                                    frame.setVisible(true);
+                                }
+                            }
 
-                        }frame.repaint();
+                        }
+                        end();
+                        frame.repaint();
 
                     }
                 }
@@ -173,8 +219,18 @@ public class Boulder_Dash {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+    public void end()
+    {
+        if(gameBoard.plane.points.size()==0&& !flag)
+        {
+            Door door1=new Door(gameBoard.plane.board.size()-4,gameBoard.plane.board.size()-4);
+            gameBoard.plane.board.get(gameBoard.plane.board.size()-4).set(gameBoard.plane.board.size()-4, door1);
+            door=door1;
+            flag=true;
+        }
+    }
     public static void main(String [] args) throws FileNotFoundException {
-        Boulder_Dash boulder_dash=new Boulder_Dash();
+       boulder_dash=new Boulder_Dash();
 
 
 

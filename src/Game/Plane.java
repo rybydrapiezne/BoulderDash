@@ -106,57 +106,9 @@ public class Plane {
             row++;
 
         }
+
     }
-    /*public void inner_walls()
-    {
-        boolean flag=false;
-        for(int i = LEVEL_LENGTH; i< board.size(); i+= LEVEL_LENGTH)
-        {
-            if(!flag) {
-                for (int j = 1; j < board.get(i).size() - 1 - LEVEL_LENGTH; j++) {
-                    board.get(i).set(j, new Wall(i, j));
-                    flag=true;
-                }
-            }
-            else {
-                for (int j = board.get(i).size() - 2; j > LEVEL_LENGTH; j--)
-                    board.get(i).set(j, new Wall(i, j));
-                    flag=false;
-            }
-        }
-    }*/
-    public void print_text_board()
-    {
-        for(int i=0;i<board.size();i++)
-        {
-            for(int j=0;j<board.get(i).size();j++)
-            {
-                if(board.get(i).get(j) instanceof Wall)
-                    System.out.print("1");
-                else if(board.get(i).get(j) instanceof Dirt)
-                    System.out.print("0");
-                else if(board.get(i).get(j) instanceof Boulder)
-                    System.out.print("2");
-            }
-            System.out.println();
-        }
-    }
-    public void generate_boulders()
-    {
-        Random random=new Random();
-        int x;
-        int y;
-        for(int i=0;i<number_of_boulders;)
-        {
-            x= random.nextInt(1,board.size()-1);
-            y=random.nextInt(1,board.size()-1);
-            if(!(board.get(x).get(y) instanceof Wall))
-            {
-                i++;
-                board.get(x).set(y,new Boulder(x,y));
-            }
-        }
-    }
+
 
     public void set_difficulty(Difficulty difficulty)
     {

@@ -14,7 +14,7 @@ public class Player implements GameObject {
 
     @Override
     public Point get_position() {
-        return null;
+        return new Point(x,y);
     }
 
     @Override
